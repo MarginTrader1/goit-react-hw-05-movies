@@ -5,7 +5,7 @@ export const TrendingList = ({ movies }) => {
   return (
     <List>
       {movies.map(item => (
-        <TrendingItem key={item.id} title={item.title} />
+        <TrendingItem key={item.id} title={item.title} id={item.id} />
       ))}
     </List>
   );

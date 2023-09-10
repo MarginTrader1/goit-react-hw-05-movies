@@ -1,7 +1,11 @@
-export const TrendingItem = ({ title }) => {
+import { Link } from 'react-router-dom';
+
+export const TrendingItem = ({ title, id }) => {
   return (
-    <li>
-      <p>{title}</p>
-    </li>
+    <Link to={`${id}`}>
+      <li>
+        <p>{title}</p>
+      </li>
+    </Link>
   );
 };
