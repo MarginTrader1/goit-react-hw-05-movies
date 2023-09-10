@@ -28,16 +28,10 @@ export const MovieDetails = () => {
 
       <div>
         <h2>{data.title}</h2>
-        <p><b>Popularity:</b> ${data.popularity}</p>
-        <p>
-          <b>Likes:</b> ${}
-        </p>
-        <p>
-          <b>Comments:</b> ${}
-        </p>
-        <p>
-          <b>Downloads:</b> ${}
-        </p>
+        <p><b>Popularity:</b> {data.popularity}</p>
+        <p><b>overview:</b> {data.overview}</p>
+        <p><b>Genres:</b>{}</p>
+        <p><b>Additional information:</b>{}</p>
       </div>
     </>
   );
