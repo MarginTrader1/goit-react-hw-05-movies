@@ -1,16 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, Route, Routes } from 'react-router-dom';
 
-import { TrendingList } from './Trending/Trending';
-import { Searchbar } from './Searchbar/Searchbar';
 import { Movies } from 'pages/Movies';
 import { MovieDetails } from 'pages/MovieDetails';
+import { Homepage } from 'pages/HomePage';
+import { TrendingList } from './Trending/Trending';
 
 // импорт запроса
 import { fetchTrendingMovies } from 'API';
-
-// импорт спиннера как компонента
-import { Hourglass } from 'react-loader-spinner';
 
 export const App = () => {
   const [data, setData] = useState([]);
@@ -57,7 +54,7 @@ export const App = () => {
       <hr />
 
       <Routes>
-        <Route path="/" element={<div></div>} />
+        <Route path="/" element={<Homepage />} />
         <Route path="/Movies" element={<Movies />} />
         <Route path="/Movies/:movieId" element={<MovieDetails />} />
       </Routes>

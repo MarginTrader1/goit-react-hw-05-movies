@@ -1,12 +1,12 @@
 import { fetchMoviesByID } from 'API';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+
 import { useParams } from 'react-router-dom';
 
 export const MovieDetails = () => {
   /* хук  useParams() забирает параметры запроса с url*/
   const { movieId } = useParams();
-  const [data, setData] = useState(null); 
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     if (movieId === '') return; /* запрет запроса при загрузке страницы*/
@@ -53,3 +53,5 @@ export const MovieDetails = () => {
     )
   );
 };
+
+export default MovieDetails;

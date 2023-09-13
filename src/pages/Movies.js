@@ -5,10 +5,6 @@ import { TrendingList } from 'components/Trending/Trending';
 // импорт запроса
 import { fetchMoviesByQuery } from 'API';
 
-// импорт спиннера как компонента
-import { Hourglass } from 'react-loader-spinner';
-import { Button } from 'components/Searchbar/Searchbar.styled';
-
 export const Movies = () => {
   const [data, setData] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -41,9 +37,6 @@ export const Movies = () => {
     // вызываем ассинхронную функцию getVideos (необходимый паттерн для иссинхронных функций в useEffect)
     getMovies();
   }, [searchQuery, page]);
-
-  // запрос за следующей страничкой для кнопки loadMore
-  const newPage = () => setPage(prevState => prevState + 1);
 
   return (
     <>

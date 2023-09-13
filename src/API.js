@@ -11,8 +11,8 @@ const options = {
   },
 };
 
-export const fetchTrendingMovies = async (searchQuery, page) => {
-  const url = `https://api.themoviedb.org/3/trending/movie/day?language=en-US&page=${page}`;
+export const fetchTrendingMovies = async () => {
+  const url = `https://api.themoviedb.org/3/trending/all/day?language=en-US`;
   const response = await axios.get(url, options);
 
   return response.data;
