@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Searchbar } from 'components/Searchbar/Searchbar';
-import { TrendingList } from 'components/Trending/Trending';
+import { TrendingList } from 'components/Trending/TrendingList';
 
 // импорт запроса
 import { fetchMoviesByQuery } from 'API';
@@ -8,7 +8,7 @@ import { fetchMoviesByQuery } from 'API';
 export const Movies = () => {
   const [data, setData] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [page, setPage] = useState(1);
+  const [page /*setPage*/] = useState(1);
 
   // получаем велью инпута, которое записываем в state
   const getQuery = newQuery => {
@@ -34,7 +34,7 @@ export const Movies = () => {
       const { results } = await fetchMoviesByQuery(query, page);
       setData(results);
     }
-    // вызываем ассинхронную функцию getVideos (необходимый паттерн для иссинхронных функций в useEffect)
+    // вызываем ассинхронную функцию getMovies (необходимый паттерн для иссинхронных функций в useEffect)
     getMovies();
   }, [searchQuery, page]);
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const key = 'a9e9b3d74b8d236f3e686503205205fe';
+// const key = 'a9e9b3d74b8d236f3e686503205205fe';
 
 const options = {
   method: 'GET',

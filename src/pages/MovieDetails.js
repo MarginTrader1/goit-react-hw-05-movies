@@ -28,7 +28,7 @@ export const MovieDetails = () => {
       <>
         <img
           src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
-          alt="${image.tags}"
+          alt={`${data.tags}`}
           loading="lazy"
         />
 

@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 
 export const TrendingItem = ({ title, id }) => {
   return (
-    <Link to={`${id}`}>
-      <li>
+    <li>
+      <Link to={`${id}`}>
         <p>{title}</p>
-      </li>
-    </Link>
+      </Link>
+    </li>
   );
 };
