@@ -1,4 +1,4 @@
-import { Link, NavLink, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 
 import { Movies } from 'pages/Movies';
 import { MovieDetails } from 'pages/MovieDetails';
@@ -9,10 +9,10 @@ import { Reviews } from './Reviews/Reviews';
 export const App = () => {
   return (
     <>
-      <NavLink>
+      <nav>
         <Link to="/">Home</Link>
         <Link to="Movies">Movies</Link>
-      </NavLink>
+      </nav>
       <hr />
 
       <Routes>

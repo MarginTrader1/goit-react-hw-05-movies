@@ -14,12 +14,11 @@ export const Reviews = () => {
         console.log(results);
         setReviews(results);
       } catch (error) {
-        console.log(error);
       }
     }
 
     getMovieReview();
-  }, []);
+  }, [movieId]);
 
   console.log(reviews);
 

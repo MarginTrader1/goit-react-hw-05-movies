@@ -13,7 +13,7 @@ const options = {
 
 export const fetchTrendingMovies = async () => {
   try {
-    const url = `https://api.themoviedb.org/3/trending/all/day?language=en-US`;
+    const url = `https://api.themoviedb.org/3/trending/movie/week?language=en-US`;
     const response = await axios.get(url, options);
 
     return response.data;
@@ -21,29 +21,37 @@ export const fetchTrendingMovies = async () => {
 };
 
 export const fetchMoviesByQuery = async (searchQuery, page) => {
-  const url = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=${page}`;
-  const response = await axios.get(url, options);
+  try {
+    const url = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=${page}`;
+    const response = await axios.get(url, options);
 
-  return response.data;
+    return response.data;
+  } catch (error) {}
 };
 
 export const fetchMoviesByID = async id => {
-  const url = `https://api.themoviedb.org/3/movie/${id}`;
-  const response = await axios.get(url, options);
+  try {
+    const url = `https://api.themoviedb.org/3/movie/${id}`;
+    const response = await axios.get(url, options);
 
-  return response.data;
+    return response.data;
+  } catch (error) {}
 };
 
 export const fetchMovieCast = async id => {
-  const url = `https://api.themoviedb.org/3/movie/${id}/credits`;
-  const response = await axios.get(url, options);
+  try {
+    const url = `https://api.themoviedb.org/3/movie/${id}/credits`;
+    const response = await axios.get(url, options);
 
-  return response.data;
+    return response.data;
+  } catch (error) {}
 };
 
 export const fetchMovieReviews = async id => {
-  const url = `https://api.themoviedb.org/3/movie/${id}/reviews`;
-  const response = await axios.get(url, options);
+  try {
+    const url = `https://api.themoviedb.org/3/movie/${id}/reviews`;
+    const response = await axios.get(url, options);
 
-  return response.data;
+    return response.data;
+  } catch (error) {}
 };

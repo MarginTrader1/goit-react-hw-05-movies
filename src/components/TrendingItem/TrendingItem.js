@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export const TrendingItem = ({ title, id }) => {
   return (
     <li>
-      <Link to={`${id}`}>
+      <Link to={`/Movies/${id}`}>
         <p>{title}</p>
       </Link>
     </li>

@@ -2,6 +2,7 @@ import { fetchMoviesByID } from 'API';
 import { useState, useEffect } from 'react';
 
 import { useParams, Link, Outlet } from 'react-router-dom';
+import { Movie } from 'components/Movie/Movie';
 
 export const MovieDetails = () => {
   /* хук  useParams() забирает параметры запроса с url*/
@@ -14,10 +15,9 @@ export const MovieDetails = () => {
     async function getMovieItem() {
       try {
         const movie = await fetchMoviesByID(movieId);
+
         setData(movie);
-      } catch (error) {
-        console.log(error.code);
-      }
+      } catch (error) {}
     }
 
     getMovieItem();
@@ -26,25 +26,8 @@ export const MovieDetails = () => {
   return (
     data /* если есть data -> рендерим разметку (поэтому первичная data=null) */ && (
       <>
-        <img
-          src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
-          alt={`${data.tags}`}
-          loading="lazy"
-        />
-
+        <Movie movie={data} />
         <div>
-          <h2>{data.title}</h2>
-          <p>
-            <b>Popularity:</b> {data.popularity}
-          </p>
-          <p>
-            <b>overview:</b> {data.overview}
-          </p>
-          <p>
-            <b>Genres:</b>
-            {}
-          </p>
-
           <p>Additional information:</p>
           <ul>
             <li>
