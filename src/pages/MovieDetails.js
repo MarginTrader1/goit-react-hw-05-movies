@@ -28,7 +28,7 @@ export const MovieDetails = () => {
       <>
         <Movie movie={data} />
         <div>
-          <p>Additional information:</p>
+          <h4>Additional information</h4>
           <ul>
             <li>
               <Link to="Cast">Cast</Link>
