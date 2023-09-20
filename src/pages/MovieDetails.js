@@ -1,7 +1,7 @@
 import { fetchMoviesByID } from 'API';
 import { useState, useEffect } from 'react';
 
-import { useParams } from 'react-router-dom';
+import { useParams, Link, Outlet } from 'react-router-dom';
 
 export const MovieDetails = () => {
   /* хук  useParams() забирает параметры запроса с url*/
@@ -44,10 +44,17 @@ export const MovieDetails = () => {
             <b>Genres:</b>
             {}
           </p>
-          <p>
-            <b>Additional information:</b>
-            {}
-          </p>
+
+          <p>Additional information:</p>
+          <ul>
+            <li>
+              <Link to="Cast">Cast</Link>
+            </li>
+            <li>
+              <Link to="Reviews">Reviews</Link>
+            </li>
+          </ul>
+          <Outlet />
         </div>
       </>
     )

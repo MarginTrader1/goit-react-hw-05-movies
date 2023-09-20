@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Searchbar } from 'components/Searchbar/Searchbar';
-import { TrendingList } from 'components/Trending/TrendingList';
+import { TrendingList } from 'components/Trending/TrendingList.1';
 
 // импорт запроса
 import { fetchMoviesByQuery } from 'API';

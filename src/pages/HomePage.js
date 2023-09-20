@@ -1,6 +1,6 @@
 import { fetchTrendingMovies } from 'API';
 import { useEffect, useState } from 'react';
-import { TrendingList } from 'components/Trending/TrendingList';
+import { TrendingList } from 'components/Trending/TrendingList.1';
 
 export const Homepage = () => {
   const [data, setData] = useState([]);

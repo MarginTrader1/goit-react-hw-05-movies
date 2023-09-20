@@ -26,7 +26,21 @@ export const fetchMoviesByQuery = async (searchQuery, page) => {
 };
 
 export const fetchMoviesByID = async id => {
-  const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
+  const url = `https://api.themoviedb.org/3/movie/${id}`;
+  const response = await axios.get(url, options);
+
+  return response.data;
+};
+
+export const fetchMovieCast = async (id, credits) => {
+  const url = `https://api.themoviedb.org/3/movie/${id}/credits`;
+  const response = await axios.get(url, options);
+
+  return response.data;
+};
+
+export const fetchMovieReviews = async (id, credits) => {
+  const url = `https://api.themoviedb.org/3/movie/${id}/reviews`;
   const response = await axios.get(url, options);
 
   return response.data;
