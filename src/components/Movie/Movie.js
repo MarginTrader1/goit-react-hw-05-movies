@@ -3,7 +3,7 @@ export const Movie = ({ movie }) => {
   
   /* Функция для жанров */
   function makeGenres(genres) {
-    const list = genres.map(item => item.name).join(' ');
+    const list = genres.map(item => item.name).join(', ');
     return list;
   }
 
