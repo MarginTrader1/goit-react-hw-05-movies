@@ -8,7 +8,7 @@ export const Homepage = () => {
   useEffect(() => {
     const getTrendingMovies = async () => {
       const { results } = await fetchTrendingMovies();
-      console.log(results);
+
       setData(results);
     };
 

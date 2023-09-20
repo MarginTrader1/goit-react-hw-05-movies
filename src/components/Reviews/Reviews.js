@@ -11,21 +11,17 @@ export const Reviews = () => {
     async function getMovieReview() {
       try {
         const { results } = await fetchMovieReviews(movieId);
-        console.log(results);
         setReviews(results);
-      } catch (error) {
-      }
+      } catch (error) {}
     }
 
     getMovieReview();
   }, [movieId]);
 
-  console.log(reviews);
-
   return reviews.length !== 0 ? (
     <ul>
-      {reviews.map(item => (
-        <ReviewItem key={item.id} author={item.author} content={item.content} />
+      {reviews.map(({ id, author, content }) => (
+        <ReviewItem key={id} author={author} content={content} />
       ))}
     </ul>
   ) : (
