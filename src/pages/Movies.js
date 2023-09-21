@@ -34,7 +34,7 @@ export const Movies = () => {
       const { results } = await fetchMoviesByQuery(query, page);
       setData(results);
     }
-    // вызываем ассинхронную функцию getMovies (необходимый паттерн для иссинхронных функций в useEffect)
+    // вызываем ассинхронную функцию getMovies (необходимый паттерн для ассинхронных функций в useEffect)
     getMovies();
   }, [searchQuery, page]);
 
