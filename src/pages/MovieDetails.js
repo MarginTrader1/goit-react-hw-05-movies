@@ -26,6 +26,7 @@ export const MovieDetails = () => {
   return (
     data /* если есть data -> рендерим разметку (поэтому первичная data=null) */ && (
       <>
+        <Link to="/">Go Back</Link>
         <Movie movie={data} />
         <div>
           <h4>Additional information</h4>

@@ -8,6 +8,9 @@ export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
+
+    if (movieId === '') return; /* запрет запроса при загрузке страницы*/
+
     async function getMovieReview() {
       try {
         const { results } = await fetchMovieReviews(movieId);
