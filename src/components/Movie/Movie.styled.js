@@ -10,6 +10,7 @@ export const StyledDiv = styled.div`
   }
 `;
 
+/* стиль для MovieDetails */
 export const StyledMovieDiv = styled.div`
   display: flex;
   flex-direction: column;
