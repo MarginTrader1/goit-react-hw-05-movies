@@ -40,8 +40,8 @@ export const MovieDetails = () => {
               <Link to="Reviews">Reviews</Link>
             </li>
           </ul>
-          <Outlet />
         </StyledMovieDiv>
+        <Outlet />
       </>
     )
   );

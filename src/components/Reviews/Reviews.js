@@ -2,6 +2,7 @@ import { fetchMovieReviews } from 'API';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ReviewItem } from 'components/ReviewItem/ReviewItem';
+import { List } from './Reviews.styled';
 
 export const Reviews = () => {
   const { movieId } = useParams();
@@ -22,11 +23,11 @@ export const Reviews = () => {
   }, [movieId]);
 
   return reviews.length !== 0 ? (
-    <ul>
+    <List>
       {reviews.map(({ id, author, content }) => (
         <ReviewItem key={id} author={author} content={content} />
       ))}
-    </ul>
+    </List>
   ) : (
     <p>We don't have any reviews for this movie</p>
   );
