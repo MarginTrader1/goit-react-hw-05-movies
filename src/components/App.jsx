@@ -10,17 +10,16 @@ import { Layout } from './Layout/Layout';
 
 export const App = () => {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Homepage />} />
-          <Route path="/Movies" element={<Movies />} />
-          <Route path="/Movies/:movieId" element={<MovieDetails />}>
-            <Route path="Cast" element={<Cast />} />
-            <Route path="Reviews" element={<Reviews />} />
-          </Route>
+    <Routes>
+      <Route path="/" element={<Layout />} exact>
+        <Route index element={<Homepage />} />
+        <Route path="Movies" element={<Movies />} />
+        <Route path="Movies/:movieId" element={<MovieDetails />}>
+          <Route path="Cast" element={<Cast />} />
+          <Route path="Reviews" element={<Reviews />} />
         </Route>
-      </Routes>
-    </>
+        <Route path="*" element={<div></div>} />
+      </Route>
+    </Routes>
   );
 };
