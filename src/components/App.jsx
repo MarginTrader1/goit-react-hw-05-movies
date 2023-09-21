@@ -7,6 +7,7 @@ import { Cast } from './Cast/Cast';
 import { Reviews } from './Reviews/Reviews';
 
 export const App = () => {
+  
   return (
     <>
       <nav>
