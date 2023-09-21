@@ -1,3 +1,5 @@
+import { StyledDiv } from './Movie.styled';
+
 export const Movie = ({ movie }) => {
   const { poster_path, title, overview, vote_average, genres } = movie;
 
@@ -8,8 +10,9 @@ export const Movie = ({ movie }) => {
   }
 
   return (
-    <div>
+    <StyledDiv>
       <img
+        width={350}
         src={`https://image.tmdb.org/t/p/w500${poster_path}`}
         alt={`${title}`}
         loading="lazy"
@@ -26,6 +29,6 @@ export const Movie = ({ movie }) => {
           <b>Genres:</b> {makeGenres(genres)}
         </p>
       </div>
-    </div>
+    </StyledDiv>
   );
 };

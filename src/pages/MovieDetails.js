@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, Outlet } from 'react-router-dom';
 import { Movie } from 'components/Movie/Movie';
 
+import { StyledMovieDiv } from 'components/Movie/Movie.styled';
+
 export const MovieDetails = () => {
   /* хук  useParams() забирает параметры запроса с url*/
   const { movieId } = useParams();
@@ -28,7 +30,7 @@ export const MovieDetails = () => {
       <>
         <Link to="/">Go Back</Link>
         <Movie movie={data} />
-        <div>
+        <StyledMovieDiv>
           <h4>Additional information</h4>
           <ul>
             <li>
@@ -39,7 +41,7 @@ export const MovieDetails = () => {
             </li>
           </ul>
           <Outlet />
-        </div>
+        </StyledMovieDiv>
       </>
     )
   );
