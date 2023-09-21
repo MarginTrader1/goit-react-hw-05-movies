@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Searchbar } from 'components/Searchbar/Searchbar';
-import { TrendingList } from 'components/Trending/TrendingList';
+import { TrendingList } from 'components/TrendingList/TrendingList';
+import { useSearchParams } from 'react-router-dom';
 
 // импорт запроса
 import { fetchMoviesByQuery } from 'API';
@@ -9,6 +10,14 @@ export const Movies = () => {
   const [data, setData] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [page /*setPage*/] = useState(1);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const movieName = searchParams.get('query') || '';
+
+  const updateQueryString = query => {
+    const nextParams = query !== '' && { query };
+    setSearchParams(nextParams);
+  };
 
   // получаем велью инпута, которое записываем в state
   const getQuery = newQuery => {
@@ -40,7 +49,11 @@ export const Movies = () => {
 
   return (
     <>
-      <Searchbar getQuery={getQuery} />
+      <Searchbar
+        getQuery={getQuery}
+        onChange={updateQueryString}
+        value={movieName}
+      />
       <TrendingList movies={data} />
     </>
   );
