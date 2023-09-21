@@ -1,12 +1,21 @@
 import { SearchForm, Button, Input } from './Searchbar.styled';
+import { useState } from 'react';
 
-export const Searchbar = ({ getQuery }) => {
+export const Searchbar = ({ getQuery, value, onChange }) => {
+  const [query, setQuery] = useState(value);
+
   return (
     <header>
       <SearchForm
         onSubmit={evt => {
           evt.preventDefault();
-          getQuery(evt.target.elements.query.value);
+        
+          // проверка на пустой запрос
+          if (evt.target.elements.query.value === '') {
+            return alert(`Пустая строка! Введите слово для поиска!`);
+          }
+
+          onChange(query);
           evt.target.reset();
         }}
       >
@@ -20,6 +29,7 @@ export const Searchbar = ({ getQuery }) => {
           autoComplete="off"
           autoFocus
           placeholder="Search videos"
+          onChange={evt => setQuery(evt.target.value)}
         />
       </SearchForm>
     </header>

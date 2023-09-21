@@ -1,5 +1,5 @@
 import { fetchMoviesByID } from 'API';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { Movie } from 'components/Movie/Movie';
@@ -11,10 +11,10 @@ export const MovieDetails = () => {
   const { movieId } = useParams();
   const [data, setData] = useState(null);
 
-  const location = useLocation(); 
+  const location = useLocation();
   /* в переменной Location принимаем пропс state и консолим pathname - путь, откуда пришли*/
 
-  console.log(location.state.from.pathname);
+  const backLink = useRef(location.state?.from || '/');
 
   useEffect(() => {
     if (movieId === '') return; /* запрет запроса при загрузке страницы*/
@@ -32,7 +32,7 @@ export const MovieDetails = () => {
   return (
     data /* если есть data -> рендерим разметку (поэтому первичная data=null) */ && (
       <>
-        <Link to={`${location.state.from.pathname}`}>Go Back</Link>
+        <Link to={backLink.current}>Go Back</Link>
         <Movie movie={data} />
         <StyledMovieDiv>
           <h4>Additional information</h4>

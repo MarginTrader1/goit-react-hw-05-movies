@@ -8,10 +8,9 @@ import { fetchMoviesByQuery } from 'API';
 
 export const Movies = () => {
   const [data, setData] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [page /*setPage*/] = useState(1);
-
+  const [page] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
+
   const movieName = searchParams.get('query') || '';
 
   const updateQueryString = query => {
@@ -19,41 +18,24 @@ export const Movies = () => {
     setSearchParams(nextParams);
   };
 
-  // получаем велью инпута, которое записываем в state
-  const getQuery = newQuery => {
-    // проверка на пустой запрос
-    if (newQuery === '') {
-      return alert(`Пустая строка! Введите слово для поиска!`);
-    }
-    // делаем запрос уникальным по методу ниже и записываем его в state
-    setSearchQuery(`${Date.now()}/${newQuery}`.trim());
-  };
-
   // основной запрос на сервер делаем через useEffect
   useEffect(() => {
     //запрет запроса при загрузке страницы
-    if (searchQuery === '') return;
+    if (movieName === '') return;
 
     //создаем ассинхронную функцию getImages (необходимый паттерн для иссинхронных функций в useEffect)
     async function getMovies() {
-      // уникальный запрос (строку) обрезаем до стандартного слова
-      const query = searchQuery.slice(14);
-
       // запрос на сервер и сразу деструктуризируем объект
-      const { results } = await fetchMoviesByQuery(query, page);
+      const { results } = await fetchMoviesByQuery(movieName, page);
       setData(results);
     }
     // вызываем ассинхронную функцию getMovies (необходимый паттерн для ассинхронных функций в useEffect)
     getMovies();
-  }, [searchQuery, page]);
+  }, [page, movieName]);
 
   return (
     <>
-      <Searchbar
-        getQuery={getQuery}
-        onChange={updateQueryString}
-        value={movieName}
-      />
+      <Searchbar onChange={updateQueryString} value={movieName} />
       <TrendingList movies={data} />
     </>
   );

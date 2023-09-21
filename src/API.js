@@ -20,9 +20,9 @@ export const fetchTrendingMovies = async () => {
   } catch (error) {}
 };
 
-export const fetchMoviesByQuery = async (searchQuery, page) => {
+export const fetchMoviesByQuery = async (query, page) => {
   try {
-    const url = `https://api.themoviedb.org/3/search/movie?query=${searchQuery}&language=en-US&page=${page}`;
+    const url = `https://api.themoviedb.org/3/search/movie?query=${query}&language=en-US&page=${page}`;
     const response = await axios.get(url, options);
 
     return response.data;
