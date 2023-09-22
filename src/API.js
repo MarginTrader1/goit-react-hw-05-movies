@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// const key = 'a9e9b3d74b8d236f3e686503205205fe';
+const BASE_URL = 'https://api.themoviedb.org/3/';
 
 const options = {
   method: 'GET',
@@ -13,45 +13,40 @@ const options = {
 
 export const fetchTrendingMovies = async () => {
   try {
-    const url = `https://api.themoviedb.org/3/trending/movie/week?language=en-US`;
+    const url = `${BASE_URL}trending/movie/week?language=en-US`;
     const response = await axios.get(url, options);
-
     return response.data;
   } catch (error) {}
 };
 
 export const fetchMoviesByQuery = async (query, page) => {
   try {
-    const url = `https://api.themoviedb.org/3/search/movie?query=${query}&language=en-US&page=${page}`;
+    const url = `${BASE_URL}search/movie?query=${query}&language=en-US&page=${page}`;
     const response = await axios.get(url, options);
-
     return response.data;
   } catch (error) {}
 };
 
 export const fetchMoviesByID = async id => {
   try {
-    const url = `https://api.themoviedb.org/3/movie/${id}`;
+    const url = `${BASE_URL}movie/${id}`;
     const response = await axios.get(url, options);
-
     return response.data;
   } catch (error) {}
 };
 
 export const fetchMovieCast = async id => {
   try {
-    const url = `https://api.themoviedb.org/3/movie/${id}/credits`;
+    const url = `${BASE_URL}movie/${id}/credits`;
     const response = await axios.get(url, options);
-
     return response.data;
   } catch (error) {}
 };
 
 export const fetchMovieReviews = async id => {
   try {
-    const url = `https://api.themoviedb.org/3/movie/${id}/reviews`;
+    const url = `${BASE_URL}movie/${id}/reviews`;
     const response = await axios.get(url, options);
-
     return response.data;
   } catch (error) {}
 };
