@@ -1,7 +1,7 @@
 import { SearchForm, Button, Input } from './Searchbar.styled';
 import { useState } from 'react';
 
-export const Searchbar = ({ getQuery, value, onChange }) => {
+export const Searchbar = ({ value, onChange }) => {
   const [query, setQuery] = useState(value);
 
   return (
