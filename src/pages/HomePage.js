@@ -17,7 +17,14 @@ export const Homepage = () => {
 
   return (
     <>
-      <TrendingList movies={data} />
+      {data.length !== 0 ? (
+        <>
+          <h2>Trending Movies</h2>
+          <TrendingList movies={data} />
+        </>
+      ) : (
+        <div>We didn't find videos</div>
+      )}
     </>
   );
 };
