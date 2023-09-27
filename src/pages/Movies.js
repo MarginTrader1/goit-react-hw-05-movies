@@ -6,7 +6,7 @@ import { useSearchParams } from 'react-router-dom';
 // импорт запроса
 import { fetchMoviesByQuery } from 'API';
 
-export const Movies = () => {
+const Movies = () => {
   const [data, setData] = useState([]);
   const [page] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();

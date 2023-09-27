@@ -5,12 +5,11 @@ import { CastItem } from 'components/CastItem/CastItem';
 import { nanoid } from 'nanoid';
 import { List } from './Cast.styled';
 
-export const Cast = () => {
+const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState(null);
 
   useEffect(() => {
-
     if (movieId === '') return; /* запрет запроса при загрузке страницы*/
 
     async function getMovieCast() {
@@ -38,3 +37,5 @@ export const Cast = () => {
     )
   );
 };
+
+export default Cast;

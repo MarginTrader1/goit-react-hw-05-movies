@@ -6,7 +6,7 @@ import { Movie } from 'components/Movie/Movie';
 
 import { StyledMovieDiv } from 'components/Movie/Movie.styled';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   /* хук  useParams() забирает параметры запроса с url*/
   const { movieId } = useParams();
   const [data, setData] = useState(null);
