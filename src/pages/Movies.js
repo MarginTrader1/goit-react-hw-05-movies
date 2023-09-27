@@ -33,10 +33,19 @@ const Movies = () => {
     getMovies();
   }, [page, movieName]);
 
+  console.log(data);
+  console.log(searchParams.size);
+
   return (
     <>
       <Searchbar onChange={updateQueryString} value={movieName} />
-      <TrendingList movies={data} />
+      {data.length === 0 && searchParams.size > 0 ? (
+        <>
+          <div>We didn't find videos!</div>
+        </>
+      ) : (
+        <TrendingList movies={data} />
+      )}
     </>
   );
 };
